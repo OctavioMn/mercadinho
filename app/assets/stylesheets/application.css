@@ -77,13 +77,22 @@
 
   .custom-control-label::before {
       background-color: #dee2e6;
-      border: #dee2e6;     
+      border: #dee2e6;
   }
-  
+
   body {
-    background: url('https://media.istockphoto.com/id/453963935/pt/foto/frutas-e-produtos-hort%C3%ADcolas-no-mercado-da-cidade-de-riga.jpg?s=612x612&w=0&k=20&c=XGQ7TPuJL2MG2G0fr4DlqrwGw-dI12hahLkMN4j6STM=') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
   }
+  .bg-overlay {
+    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("https://img.freepik.com/fotos-gratis/familia-no-supermercado-mulher-em-uma-camiseta-marrom-as-pessoas-escolhem-produtos-mae-com-filha_1157-43983.jpg?w=2000");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    width: 100%;
+    max-width: 100%;
+    height: 620px;
+    padding-top: 50px;
+}
