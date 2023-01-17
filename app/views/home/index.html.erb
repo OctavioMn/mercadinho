@@ -13,12 +13,13 @@
     <header>
       <nav class="navbar navbar-expand-lg bg-success bg-gradient ">
         <div class="container-fluid" >
+          <p style="color: green"><%= notice %></p>
           <a class= "navbar-brand" href="#">Ruby Market</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
           </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <ul class="navbar-nav h4">
+                <ul class="navbar-nav">
                   <li class="nav-item">
                     <a href="clientes#index"  class="nav-link active" aria-current="page" href="#">Cliente</a>
                   </li>
@@ -27,6 +28,14 @@
                   </li>
                   <li class="nav-item">
                     <a href="produtos#index" class="nav-link active" href="#">Produtos</a>
+                  </li>
+                  <li class="nav-item text-right">
+                    <% if user_signed_in? %>
+                        <p> Bem Vindo ao RubyMarket, <%= current_user.email %> </p>
+                        <%= link_to "Sair", destroy_user_session_path, method: :DELETE %>
+                    <% else %>
+                        <%= link_to "Logar", new_user_session_path %>
+                    <%end%>
                   </li>
                 </ul>
             </div>
