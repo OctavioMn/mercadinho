@@ -83,7 +83,7 @@
   body {
     -webkit-background-size: cover;
     -moz-background-size: cover;
-    background-size: cover;
+    background-size: 80%;
     -o-background-size: cover;
   }
   .bg-overlay {
@@ -95,4 +95,22 @@
     max-width: 100%;
     height: 620px;
     padding-top: 50px;
+}
+#img-fundo-index{
+  background: linear-gradient(rgba(90, 86, 86, 0.7), rgba(89, 85, 85, 0.7)), url("https://media.istockphoto.com/id/453963935/pt/foto/frutas-e-produtos-hort%C3%ADcolas-no-mercado-da-cidade-de-riga.jpg?s=612x612&w=0&k=20&c=XGQ7TPuJL2MG2G0fr4DlqrwGw-dI12hahLkMN4j6STM=") ;
+  background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    width: 100%;
+    max-width: 100%;
+    height: 670px;
+    padding-top: 70px;
+}
+html{
+  overflow-x: hidden ;
+}
+.abs-center-x {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }

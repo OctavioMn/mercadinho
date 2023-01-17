@@ -14,6 +14,8 @@ class VendasTest < ApplicationSystemTestCase
     visit vendas_url
     click_on "New venda"
 
+    fill_in "Cliente", with: @venda.cliente_id
+    fill_in "Produto", with: @venda.produto_id
     click_on "Create Venda"
 
     assert_text "Venda was successfully created"
@@ -24,6 +26,8 @@ class VendasTest < ApplicationSystemTestCase
     visit venda_url(@venda)
     click_on "Edit this venda", match: :first
 
+    fill_in "Cliente", with: @venda.cliente_id
+    fill_in "Produto", with: @venda.produto_id
     click_on "Update Venda"
 
     assert_text "Venda was successfully updated"

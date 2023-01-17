@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_09_175709) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_17_191534) do
   create_table "admins", force: :cascade do |t|
     t.string "user"
     t.string "senha"
@@ -19,11 +19,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_09_175709) do
   end
 
   create_table "clientes", force: :cascade do |t|
+    t.string "nome"
+    t.integer "cpf"
+    t.integer "idade"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "produtos", force: :cascade do |t|
+    t.string "nome"
+    t.integer "preco"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -41,8 +46,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_09_175709) do
   end
 
   create_table "vendas", force: :cascade do |t|
+    t.integer "produto_id", null: false
+    t.integer "cliente_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cliente_id"], name: "index_vendas_on_cliente_id"
+    t.index ["produto_id"], name: "index_vendas_on_produto_id"
   end
 
+  add_foreign_key "vendas", "clientes"
+  add_foreign_key "vendas", "produtos"
 end

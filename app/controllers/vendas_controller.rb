@@ -65,6 +65,6 @@ class VendasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def venda_params
-      params.fetch(:venda, {})
+      params.require(:venda).permit(:produto_id, :cliente_id)
     end
 end

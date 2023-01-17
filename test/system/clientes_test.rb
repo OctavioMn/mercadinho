@@ -14,6 +14,9 @@ class ClientesTest < ApplicationSystemTestCase
     visit clientes_url
     click_on "New cliente"
 
+    fill_in "Cpf", with: @cliente.cpf
+    fill_in "Idade", with: @cliente.idade
+    fill_in "Nome", with: @cliente.nome
     click_on "Create Cliente"
 
     assert_text "Cliente was successfully created"
@@ -24,6 +27,9 @@ class ClientesTest < ApplicationSystemTestCase
     visit cliente_url(@cliente)
     click_on "Edit this cliente", match: :first
 
+    fill_in "Cpf", with: @cliente.cpf
+    fill_in "Idade", with: @cliente.idade
+    fill_in "Nome", with: @cliente.nome
     click_on "Update Cliente"
 
     assert_text "Cliente was successfully updated"

@@ -12,6 +12,21 @@
   <% end %>
 
   <div>
+    <%= form.label :nome, style: "display: block" %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div>
+    <%= form.label :cpf, style: "display: block" %>
+    <%= form.number_field :cpf %>
+  </div>
+
+  <div>
+    <%= form.label :idade, style: "display: block" %>
+    <%= form.number_field :idade %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :vendas
+  resources :produtos
+  resources :clientes
   #get 'devise/session#new'
   #devise_for :users
   devise_for :users
@@ -7,9 +10,6 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
   
-  resources :produtos
-  resources :vendas
-  resources :clientes
 
   root to: 'home#index'
 end
