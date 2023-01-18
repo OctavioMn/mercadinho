@@ -3,7 +3,7 @@ class VendasController < ApplicationController
 
   # GET /vendas or /vendas.json
   def index
-    @vendas = Venda.all
+    @vendas = Venda.all.page(params[:page])
   end
 
   # GET /vendas/1 or /vendas/1.json
