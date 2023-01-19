@@ -115,11 +115,13 @@
     transform: translateX(-50%);
   }
 
-  .table-responsive {
-    margin: 30px 0;
+.table-responsive {
+	font-size: 20px;
+ 	padding: 0.5em;
+    margin: 50px 0;
 }
 .table-wrapper {
-	background: #fff;
+	background: rgb(236, 232, 199, 0.8);
 	padding: 20px 25px;
 	border-radius: 3px;
 	min-width: 1000px;
@@ -127,8 +129,8 @@
 }
 .table-title {        
 	padding-bottom: 15px;
-	background: #435d7d;
-	color: #fff;
+	background: rgb(72, 223, 122, 0.8);
+	color: rgb(29, 28, 28);
 	padding: 16px 30px;
 	min-width: 100%;
 	margin: -20px -25px 10px;
@@ -199,7 +201,7 @@ table.table td a:hover {
 	color: #2196F3;
 }
 table.table td a.edit {
-	color: #FFC107;
+	color: #292929;
 }
 table.table td a.delete {
 	color: #F44336;
@@ -333,3 +335,61 @@ table.table .avatar {
 .modal form label {
 	font-weight: normal;
 }
+
+#vendas{
+	background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("https://images-ext-1.discordapp.net/external/0oeBrBhPM408ZDW5BNuRbmYjA6PHqSdWOVmBciFUm64/https/esupermercados.com/wp-content/uploads/2018/04/Grocery-Stores-1024x683.jpg?width=686&height=458");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    width: 100%;
+    max-width: 100%;
+    height: 620px;
+    padding-top: 50px;
+}
+
+#clienteimg{
+	background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("https://savprice.com/wp-content/uploads/2017/07/checkout.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    width: 100%;
+    max-width: 100%;
+    height: 620px;
+    padding-top: 50px;
+}
+
+#clientesimg{
+	background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("https://imagens.brasil.elpais.com/resizer/S9ptn11xcx4M4jyi0D29s9pVnlc=/1200x0/cloudfront-eu-central-1.images.arcpublishing.com/prisa/OYCAGHUBTV5CNJVTFXIIMUHQ64.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    width: 100%;
+    max-width: 100%;
+    height: 620px;
+    padding-top: 50px;
+}
+
+#produtosimg{
+	background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("https://images.unsplash.com/photo-1534723452862-4c874018d66d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    width: 100%;
+    max-width: 100%;
+    height: 620px;
+    padding-top: 50px;
+
+}
+
+#produtoimg{
+	background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("https://images.unsplash.com/photo-1501523460185-2aa5d2a0f981?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=931&q=80");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    width: 100%;
+    max-width: 100%;
+    height: 620px;
+    padding-top: 50px;
+}
+
+

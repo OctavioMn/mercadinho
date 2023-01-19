@@ -1,32 +1,53 @@
-<%= form_with(model: cliente) do |form| %>
-  <% if cliente.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
+<div id="clienteimg"class="d-flex align-items-start light-blue-gradient " style="height: 100vh;">
+  <div class="container mt-2 pt-5">
+    <div class="d-flex justify-content-center">
+        <div class="col-md-4">
+            <div class="card border-0 shadow mb-2 p-2 text-dark shadow mx-auto " style="background-color: rgba(72, 223, 122, 0.767)">
+                <div class="card-body">
+                  <div class ="m-auto">
+                    <h3 class="text-dark text-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16">
+                        <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                        <path d="M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z"/>
+                      </svg>
+                    </h3>
+                      <%= form_with(model: cliente) do |form| %>
+                        <% if cliente.errors.any? %>
+                          <div style="color: red">
+                            <h2><%= pluralize(cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
 
-      <ul>
-        <% cliente.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+                            <ul>
+                              <% cliente.errors.each do |error| %>
+                                <li><%= error.full_message %></li>
+                              <% end %>
+                            </ul>
+                          </div>
+                        <% end %>
+
+                        <div class="field form-group ">
+                          <br>
+                          <%= form.text_field :nome, class:"form-control", placeholder:"Digite o nome do cliente", style:"background-color: rgb(236 232 199)" %>
+                        </div>
+
+                        <div class="field form-group">
+                          <br>
+                          <%= form.number_field :cpf, class:"form-control py-2", placeholder:"Digite o CPF do cliente", style:"background-color: rgb(236 232 199)" %>
+                        </div>
+
+                        <div class="field form-group">
+                          <br>
+                          <%= form.number_field :idade, class:"form-control py-2" , placeholder:"Digite a idade do cliente",  style:"background-color: rgb(236 232 199)" %>
+                        </div>
+
+                        <div class="actions mt-5 mb-2 text-center">
+                          <%= form.submit "Cadastrar Cliente", class: "btn btn-succes py-2 fw-bold shadow text-dark", style:"background-color: rgb(236 232 199)"%>
+                        </div>
+                        <div class="actions  text-center">
+                          <%= link_to "Voltar", clientes_path, class: "btn btn-succes fw-bold shadow text-dark ", style:"background-color: rgb(236 232 199)" %>
+                        </div>
+                      <% end %>
+                  </div>
+                </div>
+            </div>
+        </div>
     </div>
-  <% end %>
-
-  <div>
-    <%= form.label :nome, style: "display: block" %>
-    <%= form.text_field :nome %>
-  </div>
-
-  <div>
-    <%= form.label :cpf, style: "display: block" %>
-    <%= form.number_field :cpf %>
-  </div>
-
-  <div>
-    <%= form.label :idade, style: "display: block" %>
-    <%= form.number_field :idade %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>

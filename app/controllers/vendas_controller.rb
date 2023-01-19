@@ -26,7 +26,7 @@ class VendasController < ApplicationController
     respond_to do |format|
       if @venda.save
         format.html { redirect_to venda_url(@venda), notice: "Venda was successfully created." }
-        format.json { render :show, status: :created, location: @venda }
+        format.json { render :new, status: :created, location: @venda }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @venda.errors, status: :unprocessable_entity }

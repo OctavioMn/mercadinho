@@ -1,27 +1,47 @@
-<%= form_with(model: produto) do |form| %>
-  <% if produto.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(produto.errors.count, "error") %> prohibited this produto from being saved:</h2>
+<div id="produtoimg"class="d-flex align-items-start light-blue-gradient " style="height: 100vh;">
+  <div class="container mt-2 pt-5">
+    <div class="d-flex justify-content-center">
+      <div class="col-md-4">
+        <div class="card border-0 shadow mb-2 p-2 text-dark shadow mx-auto " style="background-color: rgba(72, 223, 122, 0.767)">
+            <div class="card-body">
+              <div class ="m-auto">
+                <h3 class="text-dark text-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-dropbox" viewBox="0 0 16 16">
+                    <path d="M8.01 4.555 4.005 7.11 8.01 9.665 4.005 12.22 0 9.651l4.005-2.555L0 4.555 4.005 2 8.01 4.555Zm-4.026 8.487 4.006-2.555 4.005 2.555-4.005 2.555-4.006-2.555Zm4.026-3.39 4.005-2.556L8.01 4.555 11.995 2 16 4.555 11.995 7.11 16 9.665l-4.005 2.555L8.01 9.651Z"/>
+                  </svg>
+                </h3>
+                  <%= form_with(model: produto) do |form| %>
+                    <% if produto.errors.any? %>
+                      <div style="color: red">
+                        <h2><%= pluralize(produto.errors.count, "error") %> prohibited this produto from being saved:</h2>
 
-      <ul>
-        <% produto.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+                        <ul>
+                          <% produto.errors.each do |error| %>
+                            <li><%= error.full_message %></li>
+                          <% end %>
+                        </ul>
+                      </div>
+                    <% end %>
+
+                    <div class="field form-group ">
+                      <br>
+                      <%= form.text_field :nome, id:"nomeprodutoinput",class:"form-control", placeholder:"Digite o nome do produto", style:"background-color: rgb(236 232 199)" %>
+                    </div>
+
+                    <div class="field form-group">
+                      <br>
+                      <%= form.number_field :preco,id:"precoprodutoinput", class:"form-control py-2", placeholder:"Digite o preço do produto(R$)", style:"background-color: rgb(236 232 199)" %>
+                    </div>
+                    <p style="color: red"><%= notice %></p>
+                    <div class="actions mt-5 mb-2 text-center">
+                      <%= form.submit "Adicionar Produto", class: "btn btn-succes py-2 fw-bold shadow text-dark", style:"background-color: rgb(236 232 199)"%>
+                    </div>
+                    <div class="actions  text-center">
+                      <%= link_to "Voltar", produtos_path, class: "btn btn-succes fw-bold shadow text-dark ", style:"background-color: rgb(236 232 199)", data: { confirm: "Produto adicionado com sucesso!" } %>
+                    </div>
+                  <% end %>
+              </div>
+            </div>
+        </div>
     </div>
-  <% end %>
-
-  <div>
-    <%= form.label :nome, style: "display: block" %>
-    <%= form.text_field :nome %>
-  </div>
-
-  <div>
-    <%= form.label :preco, style: "display: block" %>
-    <%= form.number_field :preco %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

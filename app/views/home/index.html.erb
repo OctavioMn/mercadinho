@@ -10,37 +10,7 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-dark navbar-expand bg-dark bg-gradient justify-content-between">
-    <div class="container-fluid">
-        <ul class="navbar-nav">
-            <li class="nav-item text-center">
-                <a href="#" class="nav-link" data-toggle="modal" data-target="#"><span class="fa fa-map"></span><span class="d-none d-sm-inline d-xl-block px-1">Ruby Market</span></a>
-            </li>
-            <li class="nav-item dropdown text-center">
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
-        </ul>
-        <ul class="nav navbar-nav">
-            <li class="nav-item text-center">
-                <a href="clientes" class="nav-link" data-toggle="modal" data-target="#"><span class="fa fa-user"></span><span class="d-none d-sm-inline d-xl-block px-1">Cliente</span></a>
-            </li>
-            <li class="nav-item text-center" >
-                <a href="vendas" class="nav-link" data-toggle="modal" data-target="#"><span class="fa fa-sign-in"></span><span class="d-none d-sm-inline d-xl-block px-1">Venda</span></a>
-            </li>
-            <li class="nav-item text-center" >
-                <a href="produtos" class="nav-link" data-toggle="modal" data-target="#"><span class="fa fa-user"></span><span class="d-none d-sm-inline d-xl-block px-1">Produto</span></a>
-            </li>
-            <li class="nav-item text-center" >
-                <a href="#" class="nav-link" data-toggle="modal" data-target="#"><span class="fa fa-user"></span><span class="d-none d-sm-inline d-xl-block px-1" ><%= link_to "Sair", destroy_user_session_path, method: :DELETE %></span></a>
-            </li>
-        </ul>
-    </div>
-</nav>
+      <%= render 'home/navbar'%>
     </header>
 
     <main>
@@ -52,12 +22,11 @@
                 <h4>Tendo como linguam principal, o "<strong>Ruby</strong>",<br>
                   Esse sistema, foi criação para um projeto de curso na materia de ProgramaçãoIII,<br>
                   tem como base um PDV, que serve para a criação<br>
-                  e manipulação de dados de um mercado. Criado por Jose Octávio e juan Pablo</h4>
+                  e manipulação de dados de um mercado. Criado por Jose Octávio e Juan Pablo</h4>
               <br><br>
             </div>
           </div>
       </section>
     </main>
-
   </body>
 </html>
