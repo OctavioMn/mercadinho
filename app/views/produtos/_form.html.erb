@@ -1,3 +1,12 @@
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function(){
+      document.getElementById("notice").remove();
+    }, 2000);
+  });
+</script>
+
 <div id="produtoimg"class="d-flex align-items-start light-blue-gradient " style="height: 100vh;">
   <div class="container mt-2 pt-5">
     <div class="d-flex justify-content-center">
@@ -12,9 +21,7 @@
                 </h3>
                   <%= form_with(model: produto) do |form| %>
                     <% if produto.errors.any? %>
-                      <div style="color: red">
-                        <h2><%= pluralize(produto.errors.count, "error") %> prohibited this produto from being saved:</h2>
-
+                      <div style="color: blue">
                         <ul>
                           <% produto.errors.each do |error| %>
                             <li><%= error.full_message %></li>
@@ -22,7 +29,7 @@
                         </ul>
                       </div>
                     <% end %>
-
+                
                     <div class="field form-group ">
                       <br>
                       <%= form.text_field :nome, id:"nomeprodutoinput",class:"form-control", placeholder:"Digite o nome do produto", style:"background-color: rgb(236 232 199)" %>
@@ -32,7 +39,9 @@
                       <br>
                       <%= form.number_field :preco,id:"precoprodutoinput", class:"form-control py-2", placeholder:"Digite o preço do produto(R$)", style:"background-color: rgb(236 232 199)" %>
                     </div>
-                    <p style="color: red"><%= notice %></p>
+                    <div id="notice"class="notice-message">       
+                      <%= notice %>
+                    </div>
                     <div class="actions mt-5 mb-2 text-center">
                       <%= form.submit "Adicionar Produto", class: "btn btn-succes py-2 fw-bold shadow text-dark", style:"background-color: rgb(236 232 199)"%>
                     </div>

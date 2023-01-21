@@ -25,8 +25,9 @@ class ProdutosController < ApplicationController
 
     respond_to do |format|
       if @produto.save
-        flash.now[:success] = "Data added successfully"
-        render :new
+        format.html { redirect_to produto_url("@new"), notice: "Produto cadastrado com sucesso!" }
+        format.json { render :new, status: :ok, location: @produto }
+        format.js
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @produto.errors, status: :unprocessable_entity }

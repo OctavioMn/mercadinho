@@ -1,10 +1,130 @@
-<h1>Editing venda</h1>
-
-<%= render "form", venda: @venda %>
-
-<br>
-
-<div>
-  <%= link_to "Show this venda", @venda %> |
-  <%= link_to "Back to vendas", vendas_path %>
+<div id="product"class="container-xl d-flex justify-content-center ml-auto"style="background-color: rgba(255, 255, 255, 0.274);" >
+  <div class="table-responsive mb-4 mt-3" >
+    <div class="table-wrapper ">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-6">
+            <h2><b>Carrinho</b></h2>
+          </div>
+        </div>
+      </div>
+      <table class="table col-5">
+        <thead>
+          <tr>
+            <th class="">Nome</th>
+            <th class="">Quantidade</th>
+            <th class="">Total(R$)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @items = Item.where(venda_id: @venda.id).page(params[:page])%>
+          <% @items.each do |item| %>
+            <tr>
+              <td><%= @produtos.find(item.produto_id).nome.to_s %></td>
+              <td><%= item.quantidade %></td>
+              <td><%= item.preco_total%> </td>
+              <td>
+                <%= link_to item, data:{turbo_method: :delete, toggle: 'modal'},class:'delete' do %>
+                  <i class="material-icons" data-toggle="tooltip" title="Deletar"></i>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>,
+                  </svg>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="clearfix">
+        <div class="hint-text"><b></b><b></b></div>
+        <ul class="pagination">
+          <%= paginate @items %>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
+<div id="vendaimg"class="d-flex align-items-start light-blue-gradient " style="height: 100vh;">
+  <div class="container mt-2 pt-5">
+    <div class="d-flex justify-content-center">
+      <div class="col-md-4">
+        <div class="card border-0 shadow mb-2 p-2 text-dark shadow mx-auto " style="background-color: rgba(72, 223, 122, 0.767)">
+          <div class="card-body">
+            <div class ="m-auto">
+              <h3 class="text-dark text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-dropbox" viewBox="0 0 16 16">
+                  <path d="M8.01 4.555 4.005 7.11 8.01 9.665 4.005 12.22 0 9.651l4.005-2.555L0 4.555 4.005 2 8.01 4.555Zm-4.026 8.487 4.006-2.555 4.005 2.555-4.005 2.555-4.006-2.555Zm4.026-3.39 4.005-2.556L8.01 4.555 11.995 2 16 4.555 11.995 7.11 16 9.665l-4.005 2.555L8.01 9.651Z"/>
+                </svg>
+              </h3>
+              <%= form_with(model: @venda) do |form| %>
+                <% if @venda.errors.any? %>
+                  <div style="color: red">
+                    <h2><%= pluralize(@venda.errors.count, "error") %> prohibited this venda from being saved:</h2>
+                    <ul>
+                      <% @venda.errors.each do |error| %>
+                        <li><%= error.full_message %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                <% end %>
+                <div class="field form-group ">
+                  <div>
+                    <select class=  <%= form.number_field :cliente_id, class:"form-control py-2",style:"background-color: rgb(236 232 199)" %> >
+                      <option selected value=<%= @venda.cliente.id %> > <%= @venda.cliente.nome%> </option>
+                      <% @clientes.each do |cliente| %>
+                        <option value= <%= cliente.id %> > <%= cliente.nome %></option>
+                      <% end %>
+                    <select>
+                  </div>
+                </div>
+                <p style="color: green"><%= notice %></p>
+                <div class="actions mt-5 mb-2 text-center">
+                  <%= form.submit "Realizar Venda", class: "btn btn-succes py-2 fw-bold shadow text-dark", style:"background-color: rgb(236 232 199)"%>
+                </div>
+              <% end %>
+              <%= form_with(model: @item) do |form| %>
+                <% if @item.errors.any? %>
+                  <div style="color: red">
+                    <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+                    <ul>
+                      <% @item.errors.each do |error| %>
+                        <li><%= error.full_message %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                <% end %>
+                <div>
+                  <div class="justify-content-center">
+                    <select class= <%= form.text_field :produto_id %> >
+                      <option selected>Produtos</option>
+                      <% @produtos.each do |produto| %>
+                        <option value= <%= produto.id %> > <%= produto.nome %></option>
+                      <% end %>
+                    <select>
+                  </div>
+                </div>
+                <div>
+                  <%= form.label :quantidade, style: "display: block" %>
+                  <%= form.number_field :quantidade %>
+                </div>
+                <%= form.hidden_field :venda_id, value: @venda.id %>
+                <div>
+                  <div class="actions mt-5 mb-2 text-center">
+                    <%= form.submit "Adicionar ao Carrinho", class: "btn btn-succes py-2 fw-bold shadow text-dark", style:"background-color: rgb(236 232 199)"%>
+                  </div>
+                </div>
+                <div class="actions  text-center">
+                  <%= link_to "Voltar", vendas_path, class: "btn btn-succes fw-bold shadow text-dark ", style:"background-color: rgb(236 232 199)", data: { confirm: "Produto adicionado com sucesso!" } %>
+                </div>
+              <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+

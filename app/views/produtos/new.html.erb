@@ -1,12 +1,7 @@
 <%= render 'home/navbar'%>
-
+<%= javascript_include_tag "alerts" %>
 <%= render "form", produto: @produto %>
-<% if flash[:success] %>
-    <%= javascript_tag do %>
-      document.getElementById("nomeprodutoinput").value = "TA FUNCIONADO EIN";
-      document.getElementById("precoprodutoinput").value = "";
-    <% end %>
-<% end %>
+
 <br>
 
 

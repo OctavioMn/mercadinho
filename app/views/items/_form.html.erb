@@ -1,0 +1,33 @@
+<%= form_with(model: item) do |form| %>
+  <% if item.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+        <% item.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <div>
+      <select class= <%= form.text_field :produto_id %> >
+        <option selected>Produtos</option>
+        <% @produtos.each do |produto| %>
+          <option value= <%= produto.id %> > <%= produto.nome %></option>
+        <% end %>
+      <select>
+    </div>
+  </div>
+
+  <div>
+    <%= form.label :quantidade, style: "display: block" %>
+    <%= form.number_field :quantidade %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

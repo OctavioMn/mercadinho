@@ -1,5 +1,4 @@
 <%= render 'home/navbar'%>
-
 <div id="product"class="container-xl d-flex justify-content-center ml-auto"style="background-color: rgba(255, 255, 255, 0.274);" >
   <div class="table-responsive mb-4 mt-3" >
     <div class="table-wrapper ">
@@ -8,6 +7,14 @@
           <div class="col-sm-6">
             <h2><b>Vendas</b></h2>
           </div>
+          <div class="col-sm-6">
+            <%= link_to new_venda_path, data:{toggle: 'modal'},class:'btn btn-success' do %>
+              <i class="material-icons"></i> <span>Realizar Venda</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-dropbox" viewBox="0 0 16 16">
+                <path d="M8.01 4.555 4.005 7.11 8.01 9.665 4.005 12.22 0 9.651l4.005-2.555L0 4.555 4.005 2 8.01 4.555Zm-4.026 8.487 4.006-2.555 4.005 2.555-4.005 2.555-4.006-2.555Zm4.026-3.39 4.005-2.556L8.01 4.555 11.995 2 16 4.555 11.995 7.11 16 9.665l-4.005 2.555L8.01 9.651Z"/>
+              </svg>
+            <% end %>
+          </div>
         </div>
       </div>
       <table class="table col-5">
@@ -15,18 +22,26 @@
           <tr>
             <th class="">ID</th>
             <th class="">Cliente</th>
-            <th class="">Produto</th>
-            <th class="">Preço(R$)</th>
+            <th class="">Total da Venda(R$)</th>
+            <th class="">Mostra Venda</th>
             <th class="">Ação</th>
           </tr>
         </thead>
         <tbody>
           <% @vendas.each do |venda| %>
             <tr>
-              <td><%= venda.id%></td>
-              <td><%= venda.cliente.nome%></td>
-              <td><%= venda.produto.nome%></td>
-              <td><%= venda.produto.preco%></td>
+              <td><%= venda.cliente.id %></td>
+              <td><%= venda.cliente.nome %></td>
+              <td><%= venda.items%> </td>
+              <td>
+                <%= link_to venda, data:{turbo_method: :delete, toggle: 'modal'},class:'delete' do %>
+                  <i class="material-icons" data-toggle="tooltip" title="Deletar"></i>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>,
+                  </svg>
+                <% end %>
+              </td>
               <td>
                 <%= link_to venda, data:{turbo_method: :delete, toggle: 'modal'},class:'delete' do %>
                   <i class="material-icons" data-toggle="tooltip" title="Deletar"></i>

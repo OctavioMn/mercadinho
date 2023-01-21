@@ -1,3 +1,12 @@
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function(){
+      document.getElementById("notice").remove();
+    }, 2000);
+  });
+</script>
+
+
 <div id="clienteimg"class="d-flex align-items-start light-blue-gradient " style="height: 100vh;">
   <div class="container mt-2 pt-5">
     <div class="d-flex justify-content-center">
@@ -13,9 +22,7 @@
                     </h3>
                       <%= form_with(model: cliente) do |form| %>
                         <% if cliente.errors.any? %>
-                          <div style="color: red">
-                            <h2><%= pluralize(cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
-
+                          <div style="color: blue">
                             <ul>
                               <% cliente.errors.each do |error| %>
                                 <li><%= error.full_message %></li>
@@ -38,7 +45,9 @@
                           <br>
                           <%= form.number_field :idade, class:"form-control py-2" , placeholder:"Digite a idade do cliente",  style:"background-color: rgb(236 232 199)" %>
                         </div>
-
+                        <div id="notice"class="notice-message">       
+                          <%= notice %>
+                        </div>
                         <div class="actions mt-5 mb-2 text-center">
                           <%= form.submit "Cadastrar Cliente", class: "btn btn-succes py-2 fw-bold shadow text-dark", style:"background-color: rgb(236 232 199)"%>
                         </div>

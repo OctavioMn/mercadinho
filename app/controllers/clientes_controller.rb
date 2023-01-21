@@ -17,6 +17,7 @@ class ClientesController < ApplicationController
 
   # GET /clientes/1/edit
   def edit
+    
   end
 
   # POST /clientes or /clientes.json
@@ -25,7 +26,7 @@ class ClientesController < ApplicationController
 
     respond_to do |format|
       if @cliente.save
-        format.html { redirect_to cliente_url(@cliente), notice: "Cliente was successfully created." }
+        format.html { redirect_to cliente_url("@new"), notice: "Cliente cadastrado com sucesso!" }
         format.json { render :show, status: :created, location: @cliente }
       else
         format.html { render :new, status: :unprocessable_entity }

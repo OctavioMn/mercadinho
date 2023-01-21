@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_17_191534) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_20_191405) do
   create_table "admins", force: :cascade do |t|
     t.string "user"
     t.string "senha"
@@ -26,9 +26,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_17_191534) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "items", force: :cascade do |t|
+    t.integer "produto_id", null: false
+    t.integer "venda_id", null: false
+    t.integer "quantidade"
+    t.float "preco_unico"
+    t.float "preco_total"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["produto_id"], name: "index_items_on_produto_id"
+    t.index ["venda_id"], name: "index_items_on_venda_id"
+  end
+
   create_table "produtos", force: :cascade do |t|
     t.string "nome"
-    t.integer "preco"
+    t.float "preco"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -46,14 +58,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_17_191534) do
   end
 
   create_table "vendas", force: :cascade do |t|
-    t.integer "produto_id", null: false
     t.integer "cliente_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cliente_id"], name: "index_vendas_on_cliente_id"
-    t.index ["produto_id"], name: "index_vendas_on_produto_id"
   end
 
+  add_foreign_key "items", "produtos"
+  add_foreign_key "items", "vendas"
   add_foreign_key "vendas", "clientes"
-  add_foreign_key "vendas", "produtos"
 end

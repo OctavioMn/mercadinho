@@ -1,5 +1,10 @@
 class Cliente < ApplicationRecord
   paginates_per 4
   has_many :vendas
-  has_many :produtos, through: :vendas
+
+  validates :nome, presence: true
+  validates :cpf, presence: true, uniqueness: {message: "já cadastrado!"}
+  validates :idade, presence: true
+
+
 end

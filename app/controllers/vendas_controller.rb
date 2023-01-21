@@ -4,6 +4,7 @@ class VendasController < ApplicationController
   # GET /vendas or /vendas.json
   def index
     @vendas = Venda.all.page(params[:page])
+    @items = Item.all
   end
 
   # GET /vendas/1 or /vendas/1.json
@@ -13,19 +14,26 @@ class VendasController < ApplicationController
   # GET /vendas/new
   def new
     @venda = Venda.new
+    @produtos = Produto.all
+    @clientes = Cliente.all
   end
 
   # GET /vendas/1/edit
   def edit
+    @clientes = Cliente.all
+    @items = Item.all
+    @produtos = Produto.all
+    @item = Item.new
+    @vendas = Venda.all
   end
 
   # POST /vendas or /vendas.json
   def create
     @venda = Venda.new(venda_params)
-
+    @clientes = Cliente.all
     respond_to do |format|
       if @venda.save
-        format.html { redirect_to venda_url(@venda), notice: "Venda was successfully created." }
+        format.html { redirect_to edit_venda_path(@venda), notice: "Venda was successfully created." }
         format.json { render :new, status: :created, location: @venda }
       else
         format.html { render :new, status: :unprocessable_entity }
