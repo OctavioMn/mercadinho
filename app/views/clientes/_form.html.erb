@@ -38,7 +38,7 @@
 
                         <div class="field form-group">
                           <br>
-                          <%= form.number_field :cpf, class:"form-control py-2", placeholder:"Digite o CPF do cliente", style:"background-color: rgb(236 232 199)" %>
+                          <%= form.number_field :cpf,min: 00000000000, max: 99999999999, id:"cpfFormatar", class:"form-control py-2", placeholder:"Digite o CPF do cliente", style:"background-color: rgb(236 232 199)"%>
                         </div>
 
                         <div class="field form-group">

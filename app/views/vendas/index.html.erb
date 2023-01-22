@@ -8,6 +8,7 @@
             <h2><b>Vendas</b></h2>
           </div>
           <div class="col-sm-6">
+            <%= link_to "Download PDF", download_path%>
             <%= link_to new_venda_path, data:{toggle: 'modal'},class:'btn btn-success' do %>
               <i class="material-icons"></i> <span>Realizar Venda</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-dropbox" viewBox="0 0 16 16">

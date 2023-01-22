@@ -3,7 +3,7 @@ class ClientesController < ApplicationController
 
   # GET /clientes or /clientes.json
   def index
-    @clientes = Cliente.all.page(params[:page])
+    @clientes = Cliente.all.page(params[:page])    
   end
 
   # GET /clientes/1 or /clientes/1.json
@@ -53,7 +53,7 @@ class ClientesController < ApplicationController
     @cliente.destroy
 
     respond_to do |format|
-      format.html { redirect_to clientes_url, notice: "Cliente was successfully destroyed." }
+      format.html { redirect_to clientes_url, notice: "" }
       format.json { head :no_content }
     end
   end
@@ -68,4 +68,5 @@ class ClientesController < ApplicationController
     def cliente_params
       params.require(:cliente).permit(:nome, :cpf, :idade)
     end
+    
 end

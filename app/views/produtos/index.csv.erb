@@ -1,0 +1,7 @@
+<%= fields = [:id, :nome, :preco].join(";")%>
+<% @produtos.each do |produto|%>
+<% id = produto.id %>
+<% nome = produto.nome %>
+<% preco = produto.preco%>
+<%= [id.to_s, nome, preco.to_s].join(";")%>
+<% end %>

@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :items
-  get 'carrinho/show'
   resources :vendas
   resources :produtos
   resources :clientes
@@ -13,7 +12,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
-  
+
 
   root to: 'home#index'
 end

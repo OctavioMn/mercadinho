@@ -1,0 +1,8 @@
+<%= fields = [:id, :nome, :cpf, :idade].join(";")%>
+<% @clientes.each do |cliente|%>
+<% id = cliente.id %>
+<% nome = cliente.nome %>
+<% cpf = cliente.cpf%>
+<% idade = cliente.idade%>
+<%= [id.to_s, nome, cpf.to_s, idade.to_s].join(";")%>
+<% end %>

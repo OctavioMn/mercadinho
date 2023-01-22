@@ -77,3 +77,9 @@ gem "devise-i18n", "~> 1.10"
 gem "letter_opener", "~> 1.8"
 
 gem "kaminari"
+
+gem 'brcpfcnpj'
+
+gem 'csv', '~> 1.0', '>= 1.0.1'
+
+gem 'prawn', '~> 2.4'
