@@ -15,6 +15,12 @@ class ItemsController < ApplicationController
     preco_unico * quantidade
   end
 
+  def preco_total_venda
+    preco_total_venda += preco_unico
+  end
+
+  def 
+
   def index
     @items = Item.all.page(params[:page])
   end
@@ -88,5 +94,9 @@ class ItemsController < ApplicationController
   
     def set_preco_total
       self[:preco_total] = preco_total * quantidade
+    end
+
+    def set_total_venda
+      self[:total_venda] = preco_total_venda += preco_unico
     end
 end

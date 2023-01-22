@@ -2,7 +2,7 @@ class Venda < ApplicationRecord
   paginates_per 4
   belongs_to :cliente
 
-  has_many :items
+  has_many :items, :dependent => :destroy
 
 
   def subtotal

@@ -5,6 +5,9 @@ class VendasController < ApplicationController
   def index
     @vendas = Venda.all.page(params[:page])
     @items = Item.all
+    @total_venda = 0
+    @produtos_cliente = []
+    
   end
 
   # GET /vendas/1 or /vendas/1.json
