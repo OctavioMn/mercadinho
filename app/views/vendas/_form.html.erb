@@ -1,4 +1,4 @@
-<div id="vendaimg"class="d-flex align-items-start light-blue-gradient " style="height: 100vh;">
+<div id="vendasimg"class="d-flex align-items-start light-blue-gradient " style="height: 100vh;">
   <div class="container mt-2 pt-5">
     <div class="d-flex justify-content-center">
       <div class="col-md-4">
@@ -23,8 +23,8 @@
                 <% end %>
                 <div class="field form-group ">
                   <div>
-                    <select class=  <%= form.number_field :cliente_id,id:"precoprodutoinput", class:"form-control py-2", placeholder:"Clientes", style:"background-color: rgb(236 232 199)" %> >
-                      <option selected>Clientes</option>
+                    <select class="form-select mt-5"<%= form.number_field :cliente_id, class:"form-control py-2", style:"background-color: rgb(236 232 199)" %> >
+                      <option selected>Selecione um Cliente</option>
                       <% @clientes.each do |cliente| %>
                         <option value= <%= cliente.id %> > <%= cliente.nome %></option>
                       <% end %>
@@ -32,7 +32,7 @@
                       </div>
                     </div>
                     <p style="color: green"><%= notice %></p>
-                    <div class="actions mt-5 mb-2 text-center">
+                    <div class="actions mt-4 mb-2 text-center">
                       <%= form.submit "Realizar Venda", class: "btn btn-succes py-2 fw-bold shadow text-dark", style:"background-color: rgb(236 232 199)"%>
                     </div>
                     <div class="actions  text-center">
