@@ -77,7 +77,7 @@ class VendasController < ApplicationController
     @vendas.each do |venda| 
       pdf.text "######################Venda - #{venda.id.to_s}######################"
       pdf.move_down 5
-      @itens = Item.where(venda_id: venda.id).page(params[:page])
+      @itens = Item.where(venda_id: venda.id)
       @total_venda = 0 
       pdf.text "Nome do Cliente: #{venda.cliente.nome}"
       pdf.text "Produto(s): "

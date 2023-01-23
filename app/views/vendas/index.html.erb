@@ -35,7 +35,7 @@
         </thead>
         <tbody>
           <% @vendas.each do |venda| %>
-            <% @itens = Item.where(venda_id: venda.id).page(params[:page])%>
+            <% @itens = Item.where(venda_id: venda.id)%>
             <% @total_venda = 0 %>
             <tr>
               <td><%= venda.id %></td>
