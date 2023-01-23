@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get 'vendas/generate', to: 'vendas#generate', as: 'pdf_generate'
+
   resources :items
   resources :vendas
   resources :produtos

@@ -6,8 +6,6 @@ class VendasController < ApplicationController
     @vendas = Venda.all.page(params[:page])
     @items = Item.all
     @total_venda = 0
-    @produtos_cliente = []
-    
   end
 
   # GET /vendas/1 or /vendas/1.json
@@ -66,6 +64,34 @@ class VendasController < ApplicationController
       format.html { redirect_to vendas_url, notice: "" }
       format.json { head :no_content }
     end
+  end 
+
+  def generate
+
+    @vendas = Venda.all
+    pdf = Prawn::Document.new
+
+    pdf.text "RUBYMARKET - Relatório de Vendas"
+    pdf.move_down 25
+
+    @vendas.each do |venda| 
+      pdf.text "######################Venda - #{venda.id.to_s}######################"
+      pdf.move_down 5
+      @itens = Item.where(venda_id: venda.id).page(params[:page])
+      @total_venda = 0 
+      pdf.text "Nome do Cliente: #{venda.cliente.nome}"
+      pdf.text "Produto(s): "
+      @itens.each do |item|
+        pdf.text "-#{item.produto.nome}(#{item.quantidade.to_s})"
+        @total_venda += item.preco_total 
+      end 
+
+      pdf.text "Total da Venda(R$) #{@total_venda.to_s}"
+      pdf.move_down 23
+    end
+
+    send_data pdf.render, filename: "relatorio-vendas#{Date.today}.pdf", type: "application/pdf"
+
   end
 
   private
