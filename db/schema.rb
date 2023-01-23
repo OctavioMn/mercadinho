@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_20_191405) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_23_210849) do
   create_table "admins", force: :cascade do |t|
     t.string "user"
     t.string "senha"
@@ -20,7 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_20_191405) do
 
   create_table "clientes", force: :cascade do |t|
     t.string "nome"
-    t.integer "cpf"
+    t.string "cpf"
     t.integer "idade"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

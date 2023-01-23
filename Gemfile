@@ -83,3 +83,5 @@ gem 'brcpfcnpj'
 gem 'csv', '~> 1.0', '>= 1.0.1'
 
 gem 'prawn', '~> 2.4'
+
+gem 'jquery-rails'
