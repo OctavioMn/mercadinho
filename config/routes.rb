@@ -6,10 +6,7 @@ Rails.application.routes.draw do
   resources :vendas
   resources :produtos
   resources :clientes
-  resources :itemvendas
-  resources :carrinho, only:[:show]
-  #get 'devise/session#new'
-  #devise_for :users
+  
   devise_for :users
 
   devise_scope :user do
