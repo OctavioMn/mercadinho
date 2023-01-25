@@ -29,17 +29,17 @@
                         </ul>
                       </div>
                     <% end %>
-                
+
                     <div class="field form-group ">
                       <br>
-                      <%= form.text_field :nome,class:"form-control", placeholder:"Digite o nome do produto", style:"background-color: rgb(236 232 199)" %>
+                      <%= form.text_field :nome,class:"form-control", placeholder:"Digite o nome do produto", style:"background-color: rgb(236 232 199)", autocomplete: "off" %>
                     </div>
 
                     <div class="field form-group">
                       <br>
                       <%= form.number_field :preco, min:0.00, max:9999.99, step:0.01, class:"form-control py-2", placeholder:"Digite o preço do produto(R$)", style:"background-color: rgb(236 232 199)" %>
                     </div>
-                    <div id="notice"class="notice-message">       
+                    <div id="notice"class="notice-message">
                       <%= notice %>
                     </div>
                     <div class="actions mt-5 mb-2 text-center">

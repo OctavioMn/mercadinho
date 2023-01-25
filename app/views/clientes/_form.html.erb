@@ -36,7 +36,7 @@
                           <br>
                           <%= form.number_field :idade, class:"form-control py-2" , placeholder:"Digite a idade do cliente",  style:"background-color: rgb(236 232 199)" %>
                         </div>
-                        <div id="notice"class="notice-message">       
+                        <div id="notice"class="notice-message">
                           <%= notice %>
                         </div>
                         <div class="actions mt-5 mb-2 text-center">
@@ -58,7 +58,7 @@
     setTimeout(function(){
       document.getElementById("notice").remove();
     }, 2000);
-  }); 
+  });
 
   document.getElementById("cpf").addEventListener("input", function(){
       if(this.value.length > 14){
@@ -70,7 +70,7 @@
       var value = this.value.replace(/\D/g,'');
       var v = value.match(/^(\d{3})(\d{3})(\d{3})(\d{2})$/);
       if(v){
-          this.value = v[1] + "." + v[2] + "." + v[3] + "-" + v[4];
+          this.value = v[1]+"."+v[2]+"."+v[3]+"-"+v[4];
       }
     });
 </script>

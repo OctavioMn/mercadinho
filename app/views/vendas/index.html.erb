@@ -43,10 +43,10 @@
               <td>
                 <% @itens.each do |item|%>
                   <%= item.produto.nome %> (<%= item.quantidade%>),
-                  <% @total_venda += item.preco_total %> 
+                  <% @total_venda += item.preco_total %>
                 <% end %>
               </td>
-              <td><%= @total_venda %></td>
+              <td><%= @total_venda.ceil(2) %></td>
               <td>
                 <%= link_to venda, data:{turbo_method: :delete, toggle: 'modal'},class:'delete' do %>
                   <i class="material-icons" data-toggle="tooltip" title="Deletar"></i>

@@ -64,7 +64,7 @@ class VendasController < ApplicationController
       format.html { redirect_to vendas_url, notice: "" }
       format.json { head :no_content }
     end
-  end 
+  end
 
   def generate
 
@@ -74,19 +74,19 @@ class VendasController < ApplicationController
     pdf.text "RUBYMARKET - Relatório de Vendas"
     pdf.move_down 25
 
-    @vendas.each do |venda| 
+    @vendas.each do |venda|
       pdf.text "######################Venda - #{venda.id.to_s}######################"
       pdf.move_down 5
       @itens = Item.where(venda_id: venda.id)
-      @total_venda = 0 
+      @total_venda = 0
       pdf.text "Nome do Cliente: #{venda.cliente.nome}"
       pdf.text "Produto(s): "
       @itens.each do |item|
         pdf.text "-#{item.produto.nome}(#{item.quantidade.to_s})"
-        @total_venda += item.preco_total 
-      end 
+        @total_venda += item.preco_total
+      end
 
-      pdf.text "Total da Venda(R$) #{@total_venda.to_s}"
+      pdf.text "Total da Venda(R$) #{@total_venda.ceil(2).to_s}"
       pdf.move_down 23
     end
 
