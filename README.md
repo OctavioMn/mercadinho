@@ -24,7 +24,6 @@ Este é um projeto de um site de mercadinho online desenvolvido em Ruby on Rails
 
 ## Execução
 Para executar o projeto, basta executar os seguintes comandos no diretório raiz:
-## No Terminal digite o seguinte comanos:
 1. bundle install
 2. rails db:create db:migrate
 3. rails s
