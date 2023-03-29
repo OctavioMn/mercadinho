@@ -1,24 +1,33 @@
-# README
+# Mercadinho RubyMarket
+Este é um projeto de um site de mercadinho online desenvolvido em Ruby on Rails.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Funcionalidades
+* Cria um usuário ADMIN
+* Cadastra, edita e exclui um Cliente/Produto.
+* Baixa uma lista com todos os clientes e produtos em CSV.
+* Adiciona/Exclui produtos ao carrinho de compras.
+* Finaliza o carrinho de compra sendo exibido todos os produtos e o valor da compra.
+* Disponibiliza um botão pra baixar todas as vendas em PDF.
 
-Things you may want to cover:
+## Tecnologias utilizadas
+* Ruby on Rails
+* SQLite3
+* Bootstrap
+* JavaScript
+* HTML
+* CSS
 
-* Ruby version
+## Como executar o projeto
+## Pré-requisitos
+* Ruby on Rails, utilizar a versão 3.1.2(https://rubyinstaller.org/downloads/archives/) do Ruby.
+* SQLite3
 
-* System dependencies
+## Execução
+Para executar o projeto, basta executar os seguintes comandos no diretório raiz:
+## No Terminal digite o seguinte comanos:
+1. bundle install
+2. rails db:create db:migrate
+3. rails s
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Utilização
+Após a execução do projeto, é possível acessar o site através de um navegador web. As funcionalidades do sistema estarão disponíveis na interface.
